@@ -20,6 +20,7 @@ class WebViewExample extends StatefulWidget {
 
 class WebViewExampleState extends State<WebViewExample> {
   late WebViewController controller;
+  double progress = 0;
   @override
   void initState() {
     super.initState();
@@ -47,6 +48,7 @@ class WebViewExampleState extends State<WebViewExample> {
               onWebViewCreated: (controller) {
                 this.controller = controller;
               },
+              onProgress: (progress) => setState(() => this.progress = progress / 100),
             ),
           ),
         ),
